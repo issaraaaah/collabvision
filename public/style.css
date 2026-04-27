@@ -1,0 +1,189 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f4f4f9;
+  color: #333;
+  padding: 20px;
+}
+
+.app-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+h1 {
+  color: #2c3e50;
+  margin-bottom: 5px;
+}
+
+.main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 25px;
+}
+
+.video-section, .notes-section, .collab-section {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.collab-section {
+  grid-column: span 2;
+}
+
+.video-controls, .recording-controls {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 15px;
+  flex-wrap: wrap;
+}
+
+button {
+  padding: 8px 16px;
+  background: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+button:hover:not(:disabled) {
+  background: #2980b9;
+}
+
+button:disabled {
+  background: #bdc3c7;
+  cursor: not-allowed;
+}
+
+.video-container {
+  margin: 15px 0;
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#recordingStatus {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #e67e22;
+  font-weight: bold;
+}
+
+.notes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+textarea {
+  width: 100%;
+  height: 300px;
+  padding: 12px;
+  font-family: monospace;
+  font-size: 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  resize: vertical;
+}
+
+.notes-actions {
+  display: flex;
+  gap: 10px;
+}
+
+#historyPanel {
+  margin-top: 15px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+}
+
+#historyList {
+  list-style: none;
+  max-height: 150px;
+  overflow-y: auto;
+  margin-top: 8px;
+}
+
+#historyList li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 6px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  border-left: 3px solid #3498db;
+}
+
+.collab-form {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 15px;
+}
+
+.collab-form input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  flex: 1;
+}
+
+#connectionStatus {
+  margin: 10px 0;
+  font-weight: bold;
+  color: #27ae60;
+}
+
+#userList {
+  margin-top: 10px;
+  background: #f8f9fa;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+#users {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 5px;
+}
+
+#users li {
+  background: #e9ecef;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+
+@media (max-width: 800px) {
+  .main-grid {
+    grid-template-columns: 1fr;
+  }
+  .collab-section {
+    grid-column: span 1;
+  }
+}

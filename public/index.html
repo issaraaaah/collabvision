@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CollabVision - Collaboration en temps réel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>🎥 CollabVision</h1>
+      <p>Partage d'écran | Caméra | Enregistrement | Notes collaboratives</p>
+    </header>
+
+    <div class="main-grid">
+      <!-- Section vidéo -->
+      <div class="video-section">
+        <div class="video-controls">
+          <button id="startCam">📷 Démarrer caméra</button>
+          <button id="stopCam" disabled>⏹️ Arrêter caméra</button>
+          <button id="startScreen">🖥️ Partager écran</button>
+          <button id="stopScreen" disabled>⏹️ Arrêter partage</button>
+        </div>
+        <div class="video-container">
+          <video id="video" autoplay muted playsinline></video>
+        </div>
+        <div class="recording-controls">
+          <button id="recordCam" disabled>🔴 Enregistrer caméra</button>
+          <button id="recordScreen" disabled>🔴 Enregistrer écran</button>
+          <button id="stopRecord" disabled>⏹️ Arrêter enregistrement</button>
+          <button id="downloadRecord" disabled>💾 Télécharger vidéo</button>
+        </div>
+        <div id="recordingStatus"></div>
+      </div>
+
+      <!-- Section notes -->
+      <div class="notes-section">
+        <div class="notes-header">
+          <h2>📝 Notes</h2>
+          <div class="notes-actions">
+            <button id="exportNote">📄 Exporter .txt</button>
+            <button id="showHistory">📜 Historique</button>
+          </div>
+        </div>
+        <textarea id="noteEditor" placeholder="Écrivez vos notes ici... (sauvegarde automatique)"></textarea>
+        <div id="historyPanel" style="display: none;">
+          <h3>Historique des notes</h3>
+          <ul id="historyList"></ul>
+        </div>
+      </div>
+
+      <!-- Section collaboration -->
+      <div class="collab-section">
+        <h2>👥 Collaboration</h2>
+        <div class="collab-form">
+          <input type="text" id="userName" placeholder="Votre nom" value="Utilisateur">
+          <input type="text" id="roomId" placeholder="Nom de la salle" value="salle1">
+          <button id="joinRoom">🔗 Rejoindre la salle</button>
+          <button id="leaveRoom" disabled>🚪 Quitter la salle</button>
+        </div>
+        <div id="connectionStatus">Non connecté</div>
+        <div id="userList">
+          <strong>Utilisateurs dans la salle :</strong>
+          <ul id="users"></ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="client.js"></script>
+</body>
+</html>
